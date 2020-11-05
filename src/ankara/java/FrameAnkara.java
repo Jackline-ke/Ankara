@@ -4,6 +4,7 @@ package ankara.java;
 public class FrameAnkara extends javax.swing.JFrame {
 
     FrameCategories frameCategories;
+    FrameProducts frameProducts;
     
     public FrameAnkara() {
         initComponents();
@@ -39,6 +40,11 @@ public class FrameAnkara extends javax.swing.JFrame {
         jMenuProducts.setText("Products");
 
         jMenuItemProducts.setText("Products");
+        jMenuItemProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemProductsActionPerformed(evt);
+            }
+        });
         jMenuProducts.add(jMenuItemProducts);
 
         jMenuBar1.add(jMenuProducts);
@@ -71,6 +77,19 @@ public class FrameAnkara extends javax.swing.JFrame {
             frameCategories.setVisible(true);
         }
     }//GEN-LAST:event_jMenuItemCategoriesActionPerformed
+
+    private void jMenuItemProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProductsActionPerformed
+        // TODO add your handling code here:
+        if(frameProducts == null || frameProducts.isClosed()){
+           frameProducts= new FrameProducts();
+           jDesktopPane1.add(frameProducts);
+           frameProducts.setVisible(true);
+        }
+        else{
+            frameProducts.setLocation(this.getWidth()/2 -frameProducts.getWidth()/2,this.getHeight()/2 -frameProducts.getHeight()/2);
+            frameProducts.setVisible(true);
+        }
+    }//GEN-LAST:event_jMenuItemProductsActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

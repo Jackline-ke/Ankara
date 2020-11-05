@@ -13,11 +13,11 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-public class FrameCategories extends javax.swing.JInternalFrame {
-
-    public FrameCategories() {
+public class FrameProducts extends javax.swing.JInternalFrame {
+    
+    public FrameProducts() {
         initComponents();
-        populateTableCategories();
+        populateTableProducts();
     }
 
     @SuppressWarnings("unchecked")
@@ -31,19 +31,19 @@ public class FrameCategories extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Categories");
+        setTitle("Products");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Description"
+                "ID", "Name", "Price", "CategoriesID"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -52,19 +52,19 @@ public class FrameCategories extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 122, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 130, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    public void populateTableCategories(){
+     
+     public void populateTableProducts(){
         try{
             String url = "jdbc:postgresql:/home/jackline";
             Properties props = new Properties();
@@ -73,7 +73,7 @@ public class FrameCategories extends javax.swing.JInternalFrame {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/ankaradb"
                     , "postgres", "A2425");
            
-            String sql = "SELECT * FROM Categories";
+            String sql = "SELECT * FROM Products";
             PreparedStatement pst = conn.prepareStatement(sql);
             
             ResultSet rs = pst.executeQuery();
@@ -90,4 +90,3 @@ public class FrameCategories extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
-
